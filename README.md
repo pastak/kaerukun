@@ -58,6 +58,8 @@ require('kaerukun')({config: './kaerukun.config.js'});
 - `tasks <String>`: Directory path includes tasks js file.
 - `urls <String[] | Object>`: URLs to execute tasks.
   - You can make group of tasks, for example you make task-groups `a` and `b` then group `a` will execute on `https://example.com/foo` and `https://example.com/bar`, group `b` will execute on `https://example.com/bar`.
+- `puppeteer <Object>` (optional): Object passed to [`puppeteer.launch`](https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md#puppeteerlaunchoptions)
+  - default value is `{args: ['--no-sandbox', '--disable-setuid-sandbox']}`
 
 ```javascript
 {

@@ -7,8 +7,12 @@ module.exports = (options) => {
 
   let errors = [];
 
+  let puppeteerOptions = Object.assign({
+    args: ['--no-sandbox', '--disable-setuid-sandbox']
+  }, config.puppeteer || {});
+
   (async () => {
-    const browser = await puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']});
+    const browser = await puppeteer.launch(puppeteerOptions);
     const page = await browser.newPage();
     page.on('error', err=> {
       console.log('error happen at the page: ', err);
