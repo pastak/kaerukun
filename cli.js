@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 'use strict';
 
-const meow = require('meow')
+const meow = require('meow');
 const kaerukun = require('./libs/main');
 
 const cli = meow(`
@@ -11,12 +11,12 @@ const cli = meow(`
   Options
     --config. -c Config file path
 `, {
-  flags: {
-    config: {
-      type: 'string',
-      alias: 'c'
+    flags: {
+      config: {
+        type: 'string',
+        alias: 'c'
+      }
     }
-  }
-});
+  });
 
-kaerukun({config: cli.flags.config})
+kaerukun({config: cli.flags.config});
