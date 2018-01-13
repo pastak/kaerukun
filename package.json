@@ -1,6 +1,6 @@
 {
   "name": "kaerukun",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "kaerukun 🐸 will associate urls and tasks for puppeteer.",
   "main": "index.js",
   "bin": "cli.js",
@@ -28,12 +28,14 @@
   "homepage": "https://github.com/pastak/kaerukun#readme",
   "dependencies": {
     "array-unique": "^0.3.2",
-    "meow": "^4.0.0",
-    "power-assert": "^1.4.4",
-    "puppeteer": "^0.13.0"
+    "meow": "^4.0.0"
   },
   "devDependencies": {
     "ava": "^0.24.0",
-    "eslint": "^4.15.0"
+    "eslint": "^4.15.0",
+    "puppeteer": "^1.0.0"
+  },
+  "peerDependencies": {
+    "puppeteer": "^1.0.0"
   }
 }

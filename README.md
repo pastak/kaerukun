@@ -40,7 +40,8 @@ Example Domain http://example.com/bar
 ## Usage
 
 1. Install 🐸 to your project.
-  - `$ npm i -D kaerukun`
+  - `$ npm i -D puppeteer kaerukun`
+    - Require `puppeteer@^1.0.0` as peerDependencies. 
 2. Put config file `kaerukun.config.js` on your project root.
 3. `$ ./node_modules/.bin/kaerukun`
 
