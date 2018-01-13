@@ -1,5 +1,8 @@
 # kaerukun 🐸
 
+[![Build Status](https://travis-ci.org/pastak/kaerukun.svg?branch=master)](https://travis-ci.org/pastak/kaerukun)
+[![NPM](https://nodei.co/npm/kaerukun.png)](https://npmjs.org/package/kaerukun)
+
 kaerukun 🐸 will associate urls and tasks for [puppeteer](https://github.com/GoogleChrome/puppeteer).
 
 ## Example
