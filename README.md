@@ -53,7 +53,8 @@ require('kaerukun')({config: './kaerukun.config.js'});
 
 #### Options
 
-- `config` (optional): Config file path.
+- `config` : Config file path.
+- `silent`: Disable output.
 
 ## Configuration
 

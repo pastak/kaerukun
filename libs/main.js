@@ -4,6 +4,7 @@ const puppeteer = require('puppeteer');
 module.exports = (options) => {
   const config = require('./getConfig')(options.config);
   const tasks = require('./getTasks')(config);
+  const enableOutput = !options.silent;
 
   let errors = [];
 
@@ -26,16 +27,16 @@ module.exports = (options) => {
         await page.goto(url);
         try {
           await require(path.resolve(filePath))(page);
-          console.log(`✅ ${filePath} on ${url}`);
+          enableOutput && console.log(`✅ ${filePath} on ${url}`);
         } catch (e) {
-          console.error(`❌ ${filePath} on ${url}`);
+          enableOutput && console.error(`❌ ${filePath} on ${url}`);
           errors.push(e);
         }
       })
     );
     await browser.close();
     if (errors.length) {
-      errors.forEach((e) => console.error(e));
+      enableOutput && errors.forEach((e) => console.error(e));
       process.exit(1);
     }
   })();
