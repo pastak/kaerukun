@@ -3,8 +3,8 @@ const path = require('path');
 const uniq = require('array-unique');
 
 const mappingTasks = (url, tasks) => {
-  return tasks.map(filePath => {return {filePath, url}});
-}
+  return tasks.map(filePath => {return {filePath, url};});
+};
 
 module.exports = (config) => {
   const {tasks, urls} = config;
@@ -13,10 +13,10 @@ module.exports = (config) => {
   const getTasksInDir = (dirPath) => {
     return fs.readdirSync(path.resolve(dirPath))
       .filter(_ => fs.statSync(path.resolve(dirPath, _)).isFile())
-      .map(fileName => path.join(dirPath, fileName))
-  }
+      .map(fileName => path.join(dirPath, fileName));
+  };
 
-  const tasksForAll = getTasksInDir(tasks)
+  const tasksForAll = getTasksInDir(tasks);
 
   fs.readdirSync(path.resolve(tasks))
     .filter(_ => fs.statSync(path.resolve(tasks, _)).isDirectory())
@@ -37,11 +37,11 @@ module.exports = (config) => {
       urls[group].forEach((url) => {
         _urls.push(url);
         result.push(...mappingTasks(url, taskGroupList[group]));
-      })
+      });
     });
   }
   uniq(_urls).forEach((url) => {
     result.push(...mappingTasks(url, tasksForAll));
-  })
+  });
   return result;
 };

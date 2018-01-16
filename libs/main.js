@@ -14,16 +14,16 @@ module.exports = (options) => {
 
   (async () => {
     const browser = await puppeteer.launch(puppeteerOptions);
-    const page = await browser.newPage();
-    page.on('error', err=> {
-      console.log('error happen at the page: ', err);
-    });
-
-    page.on('pageerror', pageerr=> {
-      console.log('pageerror occurred: ', pageerr);
-    });
     await Promise.all(
       tasks.map(async ({filePath, url}) => {
+        const page = await browser.newPage();
+        page.on('error', err=> {
+          console.log('error happen at the page: ', err);
+        });
+
+        page.on('pageerror', pageerr=> {
+          console.log('pageerror occurred: ', pageerr);
+        });
         await page.goto(url);
         try {
           await require(path.resolve(filePath))(page);
@@ -32,6 +32,7 @@ module.exports = (options) => {
           enableOutput && console.error(`❌ ${filePath} on ${url}`);
           errors.push(e);
         }
+        await page.close();
       })
     );
     await browser.close();

@@ -1,13 +1,14 @@
 {
   "name": "kaerukun",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "kaerukun 🐸 will associate urls and tasks for puppeteer.",
   "main": "index.js",
   "bin": "cli.js",
   "scripts": {
     "test": "ava",
     "test:lint": "eslint .",
-    "test:lint:fix": "eslint . --fix"
+    "test:lint:fix": "eslint . --fix",
+    "test-ci": "npm run test:lint && npm run test"
   },
   "repository": {
     "type": "git",
