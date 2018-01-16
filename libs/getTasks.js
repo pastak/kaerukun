@@ -3,6 +3,7 @@ const path = require('path');
 const uniq = require('array-unique');
 
 const mappingTasks = (url, tasks) => {
+  if (!tasks) return [];
   return tasks.map(filePath => {return {filePath, url};});
 };
 

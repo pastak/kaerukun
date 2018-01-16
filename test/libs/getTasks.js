@@ -28,6 +28,9 @@ test('grouping', t => {
       ],
       'b': [
         'https://example.com/bar'
+      ],
+      'c': [
+        'https://example.com/baz'
       ]
     }
   };
@@ -41,5 +44,6 @@ test('grouping', t => {
     {filePath: 'test/fixtures/tasks/grouping/b/hoge.js', url: 'https://example.com/bar'},
     {filePath: 'test/fixtures/tasks/grouping/all.js', url: 'https://example.com/foo'},
     {filePath: 'test/fixtures/tasks/grouping/all.js', url: 'https://example.com/bar'},
+    {filePath: 'test/fixtures/tasks/grouping/all.js', url: 'https://example.com/baz'},
   ]);
 });
