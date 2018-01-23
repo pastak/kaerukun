@@ -26,6 +26,7 @@ module.exports = (options) => {
         });
         await page.goto(url);
         try {
+          await page.goto(url, {timeout: 60 * 1000, waitUntil: 'domcontentloaded'});
           await require(path.resolve(filePath))(page);
           enableOutput && console.log(`✅ ${filePath} on ${url}`);
         } catch (e) {
