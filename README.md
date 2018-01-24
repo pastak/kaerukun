@@ -68,6 +68,8 @@ require('kaerukun')({config: './kaerukun.config.js'});
     - `./tasks/*.js` will execute on all urls.
 - `puppeteer <Object>` (optional): Object passed to [`puppeteer.launch`](https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md#puppeteerlaunchoptions)
   - default value is `{args: ['--no-sandbox', '--disable-setuid-sandbox']}`
+- `concurrent <Number>` (optional): Number of opening tab concurrently.
+  - default: `5`
 
 ```javascript
 {
