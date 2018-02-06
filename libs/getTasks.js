@@ -20,7 +20,7 @@ module.exports = (config) => {
           return path.join(dirPath, fileName);
         } else {
           if (noRecursive) return;
-          let t = {}
+          let t = {};
           t[fileName] = getTasksInDir(path.join(dirPath, fileName));
           return t;
         }
@@ -49,14 +49,14 @@ module.exports = (config) => {
         flatTaskList[prefix + key] = [];
         value.forEach(val => {
           if (typeof val === 'string') {
-            flatTaskList[prefix + key].push(val)
+            flatTaskList[prefix + key].push(val);
           } else if (typeof val === 'object') {
             flattenTaskList(val, prefix + key + '/');
           }
         });
       }
-    })
-  }
+    });
+  };
   flattenTaskList(taskGroupList);
 
   let allResult = [];
@@ -78,7 +78,7 @@ module.exports = (config) => {
                   key => (new RegExp('^' + key)).test(prefix + group)
                 )
                 .map(key => flatTaskList[key])
-            )
+            );
             result.push(...mappingTasks(url, targetTasks));
           } else {
             result.push(...recursiveMapping(url, group + '/'));
@@ -87,7 +87,7 @@ module.exports = (config) => {
       });
       return result;
     }
-  }
+  };
 
   allResult.push(...recursiveMapping(urls));
 
@@ -95,5 +95,5 @@ module.exports = (config) => {
     allResult.push(...mappingTasks(url, tasksForAll));
   });
 
-  return  [...new Set(allResult.map(o => JSON.stringify(o)))].map(s => JSON.parse(s))
+  return  [...new Set(allResult.map(o => JSON.stringify(o)))].map(s => JSON.parse(s));
 };
