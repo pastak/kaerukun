@@ -9,8 +9,9 @@ const cli = meow(`
     $ kaerukun
 
   Options
-    --config -c Config file path
-    --silent    Silect output
+    --config -c   Config file path
+    --silent      Silect output
+    --no-warning  Ignore warning
 `, {
     flags: {
       config: {
@@ -19,8 +20,12 @@ const cli = meow(`
       },
       silent: {
         type: 'boolean'
+      },
+      warning: {
+        type: 'boolean',
+        default: true
       }
     }
   });
 
-kaerukun({config: cli.flags.config, silent: cli.flags.silent});
+kaerukun({config: cli.flags.config, silent: cli.flags.silent, warning: cli.flags.warning});

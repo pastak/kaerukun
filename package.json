@@ -1,6 +1,6 @@
 {
   "name": "kaerukun",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "kaerukun 🐸 will associate urls and tasks for puppeteer.",
   "main": "index.js",
   "bin": "cli.js",

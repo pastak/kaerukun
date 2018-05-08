@@ -27,11 +27,11 @@ module.exports = (options) => {
           await queue.add(async () => {
             const page = await browser.newPage();
             page.on('error', err=> {
-              console.log(`⚠️  ${filePath} on ${url} error happen at the page: `, err);
+              options.warning && console.log(`⚠️  ${filePath} on ${url} error happen at the page: `, err);
             });
 
             page.on('pageerror', pageerr=> {
-              console.log(`⚠️  ${filePath} on ${url} pageerror occurred: `, pageerr);
+              options.warning && console.log(`⚠️  ${filePath} on ${url} pageerror occurred: `, pageerr);
             });
             try {
               await page.goto(url, {timeout: 60 * 1000, waitUntil: 'domcontentloaded'});
